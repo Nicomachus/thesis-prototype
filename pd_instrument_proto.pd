@@ -1,4 +1,4 @@
-#N canvas 188 22 1092 740 10;
+#N canvas 138 22 1092 740 10;
 #X obj 10 149 send \$0-arduino;
 #X msg 50 29 close;
 #X msg 32 8 open 2;
@@ -31,7 +31,7 @@
 #X msg 153 261 0;
 #X floatatom 272 316 5 0 0 0 - - -;
 #X obj 555 182 table loop;
-#X obj 120 387 tabwrite loop;
+#X obj 122 436 tabwrite loop;
 #X obj 438 258 tabread loop;
 #X obj 479 204 + 1;
 #X obj 438 204 float;
@@ -47,7 +47,7 @@
 #X msg 438 136 stop;
 #X obj 265 371 select 99;
 #X obj 454 457 hsl 128 15 0.1 1 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 4233 1;
+-1 -1 0 1;
 #X obj 451 549 s \$0-arduino;
 #X text 569 514 turn off;
 #X msg 451 484 analog 9 \$1;
@@ -67,6 +67,7 @@
 #X text 521 400 comment;
 #X obj 433 329 == 0.4;
 #X obj 508 317 == 0;
+#X msg 222 418 \; loop resize \$1;
 #X connect 1 0 0 0;
 #X connect 2 0 0 0;
 #X connect 3 0 0 0;
@@ -92,7 +93,7 @@
 #X connect 21 0 20 0;
 #X connect 21 0 22 0;
 #X connect 22 0 28 1;
-#X connect 22 0 40 0;
+#X connect 22 0 61 0;
 #X connect 23 0 21 0;
 #X connect 24 0 23 0;
 #X connect 25 0 21 0;
@@ -126,3 +127,4 @@
 #X connect 56 0 26 0;
 #X connect 59 0 47 0;
 #X connect 60 0 49 0;
+#X connect 61 0 28 1;
