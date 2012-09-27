@@ -1,4 +1,4 @@
-#N canvas 0 22 1092 740 10;
+#N canvas 163 259 1092 740 10;
 #X obj 10 194 send \$0-arduino;
 #X msg 50 74 close;
 #X msg 32 53 open 2;
@@ -30,7 +30,7 @@
 #X msg 224 210 stop;
 #X msg 153 261 0;
 #X floatatom 272 316 5 0 0 0 - - -;
-#X obj 479 164 table loop;
+#X obj 669 104 table loop;
 #X obj 122 436 tabwrite loop;
 #X obj 469 411 tabread loop;
 #X obj 510 357 + 1;
@@ -41,7 +41,7 @@
 #X floatatom 571 375 5 0 0 0 - - -;
 #X obj 639 418 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X msg 469 289 stop;
+#X msg 469 279 stop;
 #X obj 473 480 hsl 128 15 0.1 1 0 0 empty empty empty -2 -8 0 10 -262144
 -1 -1 0 1;
 #X obj 470 572 s \$0-arduino;
@@ -57,15 +57,29 @@
 #X obj 325 217 select 1;
 #X msg 272 288 0.4;
 #X msg 205 384 \; loop resize \$1;
-#X obj 316 294 alternate;
-#X obj 314 319 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj 370 320 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
 #X obj 639 391 select \$1;
 #X obj 245 360 send \$0-loopsize;
 #X obj 690 361 receive \$0-loopsize;
 #X obj 132 16 loadbang;
+#X msg 397 277 0;
+#X obj 18 260 send \$0-buttonrelease;
+#X obj 444 128 receive \$0-buttonrelease;
+#X obj 444 164 moses 2;
+#X floatatom 428 192 5 0 0 0 - - -;
+#X floatatom 497 191 5 0 0 0 - - -;
+#X obj 428 222 == 1;
+#X obj 428 279 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 168 197 1;
+#X obj 110 213 + 1;
+#X obj 510 218 == 1;
+#X obj 510 275 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 583 189 5 0 0 0 - - -;
+#X obj 581 218 == 1;
+#X obj 581 275 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 584 159 change 5;
 #X connect 1 0 0 0;
 #X connect 2 0 0 0;
 #X connect 3 0 0 0;
@@ -83,17 +97,18 @@
 #X connect 15 0 17 0;
 #X connect 16 0 17 1;
 #X connect 16 0 19 0;
+#X connect 16 0 65 0;
 #X connect 17 0 18 0;
 #X connect 18 0 23 0;
 #X connect 18 0 50 0;
 #X connect 19 0 24 0;
-#X connect 19 0 52 0;
+#X connect 19 0 64 0;
 #X connect 20 0 21 1;
 #X connect 21 0 20 0;
 #X connect 21 0 22 0;
 #X connect 22 0 28 1;
 #X connect 22 0 51 0;
-#X connect 22 0 56 0;
+#X connect 22 0 53 0;
 #X connect 23 0 21 0;
 #X connect 24 0 23 0;
 #X connect 25 0 21 0;
@@ -106,7 +121,7 @@
 #X connect 32 0 31 0;
 #X connect 33 0 38 0;
 #X connect 34 0 31 0;
-#X connect 35 0 55 0;
+#X connect 35 0 52 0;
 #X connect 36 0 34 0;
 #X connect 37 0 32 0;
 #X connect 38 0 41 0;
@@ -120,12 +135,24 @@
 #X connect 49 0 15 0;
 #X connect 50 0 26 0;
 #X connect 51 0 28 1;
-#X connect 52 0 53 0;
-#X connect 52 1 54 0;
-#X connect 54 0 32 0;
-#X connect 55 0 36 0;
-#X connect 57 0 55 1;
-#X connect 58 0 2 0;
-#X connect 58 0 3 0;
-#X connect 58 0 13 0;
-#X connect 58 0 45 0;
+#X connect 52 0 36 0;
+#X connect 54 0 52 1;
+#X connect 55 0 2 0;
+#X connect 55 0 3 0;
+#X connect 55 0 13 0;
+#X connect 55 0 45 0;
+#X connect 56 0 31 0;
+#X connect 58 0 59 0;
+#X connect 58 0 71 0;
+#X connect 59 0 60 0;
+#X connect 59 1 61 0;
+#X connect 60 0 62 0;
+#X connect 61 0 66 0;
+#X connect 62 0 63 0;
+#X connect 63 0 32 0;
+#X connect 64 0 65 1;
+#X connect 65 0 57 0;
+#X connect 66 0 67 0;
+#X connect 68 0 69 0;
+#X connect 69 0 70 0;
+#X connect 71 0 68 0;
